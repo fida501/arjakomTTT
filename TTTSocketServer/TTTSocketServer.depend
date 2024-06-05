@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1717622462 source:c:\pertugasan\arjakopm\tictactoesocketprogramming\tttsocketserver\main.cpp
+	<iostream>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<thread>
+
