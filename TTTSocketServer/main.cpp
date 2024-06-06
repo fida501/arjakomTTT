@@ -318,6 +318,7 @@ void ServerStop()
 int main()
 {
     const char* ipAddress = "127.0.0.1";
+    string ipString;
     int port = 55555;
 
     while(true)
@@ -334,8 +335,13 @@ int main()
         switch (serverConsoleCommand)
         {
         case 1:
-            cout << "Server dimulai dengan IP 127.0.0.1 dan port 55555" << endl;
+            cout << "Masukkan Ip Address : ";
+            cin >> ipString;
+            ipAddress = ipString.c_str();
+            cout << "Server dimulai dengan ip : " << ipAddress  << " dan dengan port " << port <<endl;
             ServerStart(ipAddress, port);
+//            cout << "Server dimulai dengan IP 127.0.0.1 dan port 55555" << endl;
+//            ServerStart(ipAddress, port);
             break;
         case 2:
             cout << "Anda memilih Perintah nomor 2" << endl;

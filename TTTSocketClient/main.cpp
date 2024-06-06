@@ -121,6 +121,7 @@ int main()
     while(true)
     {
         const char* serverIp = "127.0.0.1";
+        string ipString;
         int port = 55555;
         cout << "Selamat datang di alfamaret, selamat belanja" << endl;
         cout << "Berikut adalah perintah yang bisa anda lakukan ! " << endl;
@@ -133,8 +134,13 @@ int main()
         switch(clientConsoleCommand)
         {
         case 1:
-            cout << "Terasmbung ke server dengan IP 127.0.0.1 dan Port 55555" << endl;
+             cout << "Masukkan Ip Address : ";
+            cin >> ipString;
+            serverIp = ipString.c_str();
+            cout << "Server dimulai dengan ip : " << serverIp  << " dan dengan port " << port <<endl;
             ClientStart(serverIp, port);
+//            cout << "Terasmbung ke server dengan IP 127.0.0.1 dan Port 55555" << endl;
+//            ClientStart(serverIp, port);
             break;
         case 2:
             cout << "Terima kasih sudah berbelanja di alfamaret" << endl;
