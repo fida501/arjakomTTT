@@ -14,10 +14,12 @@ bool game_over = false;
 
 void receiveData(SOCKET sock, char* buffer, size_t bufferSize)
 {
+
     int valread = recv(sock, buffer, bufferSize, 0);
     if (valread == SOCKET_ERROR)
     {
         std::cerr << "Recv error: " << WSAGetLastError() << std::endl;
+
     }
     else
     {
@@ -39,15 +41,13 @@ void ReceiveUpdates(SOCKET socket)
     while (!game_over)
     {
         receiveData(socket, buffer, BUFFER_SIZE);
+
+        if (strncmp(buffer, "game_over", 10) == 0) {
+            std::cout << "Game ended. Disconnecting from the server.\n";
+            game_over = true;
+        }
         std::cout << buffer;
 
-        std::string message(buffer);
-        if (message == "Game Ended.") {
-            game_over = true;
-            std::cout << "Game ended. Disconnecting from the server.\n";
-            closesocket(socket);
-            break;
-        }
     }
 }
 
@@ -110,6 +110,8 @@ void ClientStart(const char* serverIp, int port)
         std::cout << "Client: Can start sending and receiving data..." << std::endl;
     }
     PlayGame(clientSocket);
+    closesocket(clientSocket);
+    WSACleanup();
 }
 
 

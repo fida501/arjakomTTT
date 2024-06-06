@@ -7,3 +7,11 @@
 	<string>
 	<thread>
 
+1717683938 source:c:\pertugasan\arjakopm\ttt git\arjakomttt\tttsocketclient\main.cpp
+	<iostream>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<limits>
+	<string>
+	<thread>
+
